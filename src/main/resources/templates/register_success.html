@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Success</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/site.css}" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between" style="padding:20px 150px;">
+        <div>
+            <a class="navbar-brand font-30" style="color:white;" th:href="@{/}">CITY HOSTEL</a>
+        </div>
+    </nav>
+    <div>
+        <img class="hero" th:src="@{/images/hero.jpg}" alt="" title="heroImg">
+    </div>
+    <div id="desktopContent" class="container">
+        <div class="container-fluid font-20 mt-5">
+            <div class="desktop-container shadow">
+                <div class="container text-center">
+                    <p>You have signed up successfully!</a></p>
+                </div>
+                <div class="text-center font-20">
+                    <div>
+                        <a class="btn btn-outline-success my-2 my-sm-0" type="submit" th:href="@{/login}">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

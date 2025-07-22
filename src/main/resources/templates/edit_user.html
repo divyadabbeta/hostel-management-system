@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/site.css}" type="text/css">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark justify-content-between" style="padding:20px 150px;">
+    <div>
+        <a class="navbar-brand font-30" style="color:white;" th:href="@{/}">CITY HOSTEL</a>
+    </div>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+<div class="d-flex justify-content-center" style="background-color: #fae5b9;">
+    <img style=" object-fit: cover; height: 300px;" th:src="@{/images/hostel.jpg}" alt="" title="heroImg">
+</div>
+<div id="desktopContent" class="container">
+    <div class="container-fluid mt-5">
+        <div class="desktop-container shadow">
+            <div class="container text-center mb-4">
+                <h3>Edit User Details</h3>
+                <form th:action="@{/manageMember}" method="get">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Back To Manage Members</button>
+                </form>
+            </div>
+            <div>
+                <form th:action="@{/updateUser?role=admin}" method="post" th:object="${user}"
+                      style="max-width:600px; margin:0 auto;">
+                    <div class="m-3">
+                        <div class="form-group row my-2">
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{id}" hidden
+                                       value="${user.id}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">RoomNo</label>
+                            <div class="col-8">
+                                <input type="number" class="form-control" th:field="*{roomNo}"
+                                        maxlength="10" value="${user.roomNo}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">First Name</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{firstName}" required
+                                       minlength="2" maxlength="20" value="${user.firstName}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">Last Name</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{lastName}" required
+                                       minlength="2" maxlength="20" value="${user.lastName}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">E-mail</label>
+                            <div class="col-8">
+                                <input type="email" class="form-control" th:field="*{email}" required
+                                       minlength="6" maxlength="20" value="${user.email}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{password}" hidden
+                                        value="${user.password}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">DOB</label>
+                            <div class="col-8">
+                                <input type="date" class="form-control" th:field="*{dob}"
+                                       minlength="6" maxlength="20" value="${user.dob}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">Phone Number</label>
+                            <div class="col-8">
+                                <input type="tel" class="form-control" th:field="*{phoneNo}"
+                                       minlength="10" maxlength="13" value="${user.phoneNo}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">Father Name</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{fatherName}"
+                                       minlength="2" maxlength="20" value="${user.fatherName}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">Mother Name</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{motherName}"
+                                       minlength="2" maxlength="20" value="${user.motherName}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">Parent Phone Number</label>
+                            <div class="col-8">
+                                <input type="tel" class="form-control" th:field="*{parentPhoneNo}"
+                                       minlength="10" maxlength="13" value="${user.parentPhoneNo}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label class="col-form-label col-4">Address</label>
+                            <div class="col-8">
+                                <input type="text" class="form-control" th:field="*{address}"
+                                       minlength="2" maxlength="200" value="${user.address}"/>
+                            </div>
+                        </div>
+                        <div class="text-end mt-4">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/site.css}" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between" style="padding:20px 150px;">
+        <div>
+            <a class="navbar-brand font-30" style="color:white;" th:href="@{/}">CITY HOSTEL</a>
+        </div>
+        <div>
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+    <div>
+        <img class="hero" th:src="@{/images/hero.jpg}" alt="" title="heroImg">
+    </div>
+    <div id="homePage" class="container">
+        <div class="container-fluid mt-5">
+            <div class="desktop-container shadow">
+                <div class="container text-center mt-2">
+                    <h3 th:text="${greeting}">Welcome Home</h3>
+                </div>
+
+                <div class="container text-danger text-center mt-2">
+                    <h3 th:text="${alert}"></h3>
+                </div>
+                <div class="container p-5">
+                    <h5 class="text-center my-5">Available Rooms:</h5>
+                    <div class="d-flex justify-content-evenly">
+                        <div  th:each="room: ${roomsList}">
+                            <div th:switch="${room.capacity}">
+                                <div th:case="2" class="card" style="width: 18rem;">
+                                    <img th:src="@{/images/2bed.jpg}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Double Sharing Room</h5>
+                                        <p class="card-text mb-2">This room is only for 2 persons
+                                        <ul>
+                                            <li>It consist of 2 beds</li>
+                                            <li>attached neat washroom</li>
+                                            <li>2 study tables & chairs</li>
+                                            <li>Cost: 10,000</li>
+                                        </ul>
+                                        </p>
+                                        <a th:href="@{/bookRoom(roomId=${room.id})} + '&type=2&cost=10000'" class="btn btn-success">Book here</a>
+                                    </div>
+                                </div>
+                                <div th:case="3" class="card" style="width: 18rem;">
+                                    <img th:src="@{/images/beds.jpeg}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Triple Sharing Room</h5>
+                                        <p class="card-text mb-2">This room is only for 3 persons
+                                        <ul>
+                                            <li>It consist of 3 beds</li>
+                                            <li>attached neat washroom</li>
+                                            <li>3 study tables & chairs</li>
+                                            <li>Cost: 9,600</li>
+                                        </ul>
+                                        </p>
+                                        <a th:href="@{/bookRoom(roomId=${room.id})} + '&type=3&cost=9600'" class="btn btn-success">Book here</a>
+                                        
+                                    </div>
+                                </div>
+                                <div th:case="4" class="card" style="width: 18rem;">
+                                    <img th:src="@{/images/4bed.jpg}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Four Sharing Room</h5>
+                                        <p class="card-text mb-2">This room is only for 4 persons
+                                        <ul>
+                                            <li>It consist of 4 beds</li>
+                                            <li>attached neat washroom</li>
+                                            <li>4 study tables & chairs</li>
+                                            <li>Cost: 8,000</li>
+                                        </ul>
+                                        </p>
+                                        <a th:href="@{/bookRoom(roomId=${room.id})} + '&type=4&cost=8000'" class="btn btn-success">Book here</a>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <h5 class="text-center"><b>Mess Details:</b></h5>
+                    <div class="container p-5">
+                        <table class="table table-striped table-bordered text-center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th><b>Day</b></th>
+                                    <th><b>Breakfast</b></th>
+                                    <th><b>Lunch</b></th>
+                                    <th><b>Snack</b></th>
+                                    <th><b>Dinner</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Monday</th>
+                                    <td>Idli,Sambar,Chutney,Tea,Milk</td>
+                                    <td>Rice,Potato Fry,Dal,Sambar,Curd</td>
+                                    <td>Samosa</td>
+                                    <td>Rice,Roti,Dal,Pickle,Curd</td>
+                                </tr>
+                                <tr>
+                                    <th>TuesDay</th>
+                                    <td>Upma,Tomato Chutney,Tea,Milk</td>
+                                    <td>Rice,Tomato curry,Dal,Pickle,Curd</td>
+                                    <td>Egg Puff</td>
+                                    <td>Rice,Roti,Egg Curry,Dal,Curd</td>
+                                </tr>
+                                <tr>
+                                    <th>Wednesday</th>
+                                    <td>Jeera Rice,Tea,Milk</td>
+                                    <td>Rice,Ladies Finger,Dal,sambar,Curd</td>
+                                    <td>Corn Flakes</td>
+                                    <td>Rice,Roti,Chicken/paneer,Curd</td>
+                                </tr>
+                                <tr>
+                                    <th>Thursday</th>
+                                    <td>Dosa,Chutney,Tea,Milk</td>
+                                    <td>Rice,Dal,sambar,cucumber</td>
+                                    <td>Samosa</td>
+                                    <td>Rice,Roti,carrot fry ,1Soup,Curd</td>
+                                </tr>
+                                <tr>
+                                    <th>Friday</th>
+                                    <td>Chapathi,Aloo kurma,Tea,Milk</td>
+                                    <td>Rice,Dal,Sambar,paneer,Curd</td>
+                                    <td>Banana</td>
+                                    <td>Rice,Roti,potato ,1Soup,Curd</td>
+                                </tr>
+                                <tr>
+                                    <th>Saturday</th>
+                                    <td>poha,Tea,Milk</td>
+                                    <td>Rice,Mill Maker,Dal,Sambar,Curd</td>
+                                    <td>Noodles</td>
+                                    <td>Rice,Roti,Egg,Potato,Curd</td>
+                                </tr>
+                                <tr>
+                                    <th>Sunday</th>
+                                    <td>Vada,Tea,Milk</td>
+                                    <td>Rice,Dal,Sambar,Curd</td>
+                                    <td>Biscuits</td>
+                                    <td>Rice,Roti,Chicken/Paneer,Curd/td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container">
+                    <h5 class="text-center">FAQ's:</h5>
+                    <div class="container p-5">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        How can i use fridge
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>First open fridge.</strong> Then there is fridge, open the door and use it.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Do you offer free Wi-Fi?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Yes,</strong>we offer free Wi-Fi throughout the hostel for all guests.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                       Is there a kitchen available for guests to use?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Yes,</strong> we have a fully equipped kitchen available for guests to use.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                        Do you have lockers for storing valuables?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Yes,</strong> we provide lockers for guests to store their valuables. Please bring your own lock or rent one at the reception.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                        Do you offer laundry facilities?
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Yes,</strong>we have coin-operated washing machines and dryers available for guest use.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                                        Are there any age restrictions for staying at the hostel?
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                         We welcome guests of all ages. However, guests under 18 must be accompanied by an adult.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        Are pets allowed in the hostel?
+                                    </button>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Unfortunately,</strong>pets are not allowed in the hostel to ensure the comfort of all our guests.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src=
+                    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity=
+                    "sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous">
+    </script>
+</body>
+</html>

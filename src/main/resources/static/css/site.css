@@ -1,0 +1,47 @@
+/* Set general site style */
+* {
+    font-family: Open Sans, Arial, serif !important;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+body {
+    background-color: #F9F9F9;
+}
+
+p{
+    margin:0;
+}
+
+hr {
+    border-color: #E6E6E6;
+}
+
+.desktop-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+.font-30{
+	font-size: 40px;
+	text-align:center;
+}
+
+.font-24 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.hero {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}

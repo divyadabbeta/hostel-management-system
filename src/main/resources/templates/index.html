@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="ISO-8859-1">
+        <title>Home- Hostel management System</title>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between" style="padding:20px 150px;">
+       <div>
+           <a class="navbar-brand font-30" style="color: white ;" th:href="@{/}">CITY HOSTEL</a>
+       </div>
+       <div>
+           <a class="btn btn-outline-success my-2 my-sm-0" type="submit" th:href="@{/adminLogin}">Admin</a>
+           <a class="btn btn-outline-success my-2 my-sm-0" type="submit" th:href="@{/login}">Login</a>
+           <a class="btn btn-outline-success my-2 my-sm-0" type="submit" th:href="@{register}">Sign Up!</a>
+       </div>
+    </nav>
+    <div>
+        <img class="hero" th:src="@{/images/hero.jpg}" alt="" title="heroImg">
+    </div>
+    <div id="content">
+        <div id="desktopContent" class="container mt-5">
+            <div class="container-fluid">
+                <div class="desktop-container shadow">
+                    <div class="container">
+                        <div class="p-5">
+                            <p class="font-24">Welcome to City Hostel</p>
+                            <p class="font-20 mt-4">Your Home Away from Home</p>
+                            <p class="m-2">Our hostel offers a comfortable and convenient living space for students and travelers alike. Nestled in the city's heart, our facility provides easy access to educational institutions, public transport, and essential amenities. Our hostel is designed to create a home-like environment where residents can study, relax, and thrive.</p>
+                            <p><b>Features and Amenities:</b></p>
+                            <ul class="m-2"> <li><b>Fully Furnished Rooms:</b> Spacious rooms with comfortable beds, study tables, and ample storage.</li>
+                                <li><b>24/7 Security:</b> Round-the-clock security personnel and CCTV surveillance to ensure your safety.</li>
+                                <li><b>High-Speed Internet:</b> Unlimited access to high-speed Wi-Fi to keep you connected.</li>
+                                <li><b>Common Areas:</b> Cozy common areas for socializing, studying, and relaxation.</li>
+                                <li><b>Laundry Facilities:</b> On-site laundry services to take care of your washing needs.</li>
+                            </ul>
+                            <p class="my-3">
+                                <b>Address:</b><br>
+                                City Hostel<br>
+                                Santhosh Nagar<br>
+                                Hyderabad, Telangana, 500085<br>
+                                India
+                            </p>
+                            <p>
+                                <b>Contact Us:</b><br>
+                                Phone: 9876543210<br>
+                                Email: hms@gmail.com<br>
+                            </p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

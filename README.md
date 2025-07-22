@@ -1,0 +1,2 @@
+# Hostel Management System
+Hostel Management System is a web application designed to simplify hostel operations like student registration, room booking, and mess detail management. Built with HTML, CSS, Bootstrap for the frontend and Java, Spring Boot, and MySQL for the backend, it provides separate dashboards for admins and students, ensuring smooth and efficient management.

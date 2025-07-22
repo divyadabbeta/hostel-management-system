@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/site.css}" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between" style="padding:20px 150px;">
+        <div>
+            <a class="navbar-brand font-30" style="color:white;" th:href="@{/}">CITY HOSTEL</a>
+        </div>
+        <div>
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-center" style="background-color: #fae5b9;">
+        <img style=" object-fit: cover; height: 300px;" th:src="@{/images/hostel.jpg}" alt="" title="heroImg">
+    </div>
+    <div id="homePage" class="container">
+        <div class="container-fluid mt-5">
+            <div class="desktop-container shadow">
+                <div class="container text-center mb-4">
+                    <h3>Welcome Home</h3>
+                </div>
+                <div class="d-flex justify-content-evenly">
+                    <div>
+                        <div class="card" style="width: 18rem;">
+                            <img th:src="@{/images/room.png}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Manage Rooms</h5>
+                                <p class="card-text mb-2">As an admin you can add, remove rooms in a hostel.</p>
+                                <a th:href="@{/manageRoom}" class="btn btn-primary">Click here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="width: 18rem;">
+                            <img th:src="@{/images/member.jpg}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Manage Hosteler</h5>
+                                <p class="card-text mb-2">As an admin you should be able to edit, remove a hosteler.</p>
+                                <a th:href="@{/manageMember}" class="btn btn-primary">Click here</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
